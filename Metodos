@@ -1,0 +1,75 @@
+package Clases;
+public class Metodos 
+{
+    int Dato = 0;
+    Nodo CimaA = null;
+    Nodo CimaB = null;
+
+    public void Insertar()
+    {
+        for(int i=0; i<10; i++)
+        {
+            Dato = (int)(Math.random()*10+1);
+            
+            Nodo NuevoNodo = new Nodo(Dato);
+            
+            if (CimaA == null)
+            {
+                CimaA = NuevoNodo;
+            }
+            else
+            {
+                if (NuevoNodo.Dato < CimaA.Dato)
+                {
+                    NuevoNodo.Siguiente = CimaA;
+                    CimaA = NuevoNodo;
+                }
+                else
+                {
+                    NuevoNodo.Siguiente = CimaB;
+                    CimaB = NuevoNodo;
+                }
+            }
+        }
+    }
+    
+    public void Mostrar()
+    {
+        if (CimaA == null && CimaB == null)
+        {
+            System.out.println("Pilas Vacias");
+        }
+        else
+        {
+            Nodo RecorreA = CimaA;
+            Nodo RecorreB = CimaB;
+
+            System.out.println("-----Pila A-----");
+            while(RecorreA!=null)
+            {
+                System.out.println(RecorreA.Dato);
+                RecorreA = RecorreA.Siguiente;
+            }
+            
+            System.out.println("-----Pila B-----");
+            while(RecorreB!=null)
+            {
+                System.out.println(RecorreB.Dato);
+                RecorreB = RecorreB.Siguiente;
+            }
+        }
+    }
+    
+    public void Eliminar()
+    {
+        if (CimaA == null && CimaB == null)
+        {
+            System.out.println("Pila Vacia");
+        }
+        else
+        {
+            CimaA = CimaA.Siguiente;
+            System.out.println("Se elimino un elemento de la pila A");
+        }
+    }
+}
