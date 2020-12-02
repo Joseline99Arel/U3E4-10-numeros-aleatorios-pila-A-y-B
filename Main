@@ -1,0 +1,52 @@
+package Clases;
+import java.util.Scanner;
+public class Main 
+{
+    public static void main (String[] args)
+    {
+        Scanner Leer = new Scanner (System.in);
+        
+        Metodos Obj = new Metodos();
+        
+        int Opc, x=1;
+        String Dato;
+      
+        while(x==1)
+        {
+            System.out.println(" ");
+            System.out.println("--------------------- Menu ---------------------");
+            System.out.println("Por favor elige una de las siguientes opciones");
+            System.out.println("1.- Insertar");
+            System.out.println("2.- Eliminar");
+            System.out.println("3.- Mostrar");
+            System.out.println("4.- Salir");
+            Opc=Leer.nextInt();
+            
+            System.out.println(" ");
+            if(Opc>0 && Opc<5)
+            {
+                switch(Opc)
+                {
+                    case 1:
+                        Obj.Insertar();
+                        System.out.println("Se agregaron 10 elementos a la Pila");
+                    break;
+                    case 2:
+                        Obj.Eliminar();
+                    break;
+                    case 3:
+                        Obj.Mostrar();
+                    break;
+                    case 4: 
+                        System.exit(0);
+                    break;
+                }
+            }
+            else
+            {
+                System.out.println("Lo sentimos el numero ingresado es incorrecto");
+                System.out.println("Por favor elija una opcion valida");
+            }
+        }
+    }
+}
